@@ -12,11 +12,7 @@ def main(global_config, **ini_settings):
     """
     # import pdb; pdb.set_trace()
     app = AppConfig(**ini_settings)
-
-    from gtfsdb import Database
     kw = app.gtfsdb_param_from_config()
-    db = Database(**kw)
-    app.set_db(db)
 
     from . import views
     app.config_include_scan(views)
